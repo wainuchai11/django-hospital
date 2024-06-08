@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'records',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,15 @@ WSGI_APPLICATION = 'hospital.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'hospital',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://jackwinuchai:XK4IGhKZC9ZjgouE@hospital.cuuyeed.mongodb.net/?retryWrites=true&w=majority&appName=hospital',
+            'username': 'jackwinuchai',
+            'password': 'XK4IGhKZC9ZjgouE',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
 
