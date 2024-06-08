@@ -2,13 +2,11 @@ version: "3.7"
 
 services:
   db:
-    image: postgres
-    environment:
-      POSTGRES_DB: hospital
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+    image: mongo
+    ports:
+      - "27017:27017"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mongo_data:/data/db
 
   web:
     build: .
@@ -21,4 +19,4 @@ services:
       - db
 
 volumes:
-  postgres_data:
+  mongo_data:
